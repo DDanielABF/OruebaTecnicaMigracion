@@ -12,7 +12,7 @@ interface LoginFormInputs {
 }
 
 const LoginContainer: React.FC = () => {
-  const { isAuthenticated, login } = useContext<AuthContextType>(AuthContext);
+  const { isAuthenticated, login, user } = useContext<AuthContextType>(AuthContext);
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
   const [loginError, setLoginError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -35,11 +35,10 @@ const LoginContainer: React.FC = () => {
   const toggleShowPassword = () => {
     setShowPassword(prev => !prev);
   };
-
   if (isAuthenticated) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to={user?.rol.toLowerCase() === 'administrador' ? '/dashboard' : '/dashboard'} replace />;
   }
-
+  
   return (
     <LoginView
       register={register}

@@ -1,0 +1,23 @@
+// src/components/styles/PassportCards.module.scss
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .card {
+    padding: 1rem;
+    border-radius: 8px;
+    width: 200px;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .active {
+    background-color: #4caf50; // Verde
+  }
+  
+  .inactive {
+    background-color: #f44336; // Rojo
+  }
+  
