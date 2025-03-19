@@ -1,0 +1,19 @@
+### Registro de usuario
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Maria Paz",
+  "correo": "mariapaz@gmail.com",
+  "contraseña": "654321",
+  "rol": "administrador"
+}
+
+### Login de usuario (usando id)
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "id": 1,
+  "contraseña": "654321"
+}

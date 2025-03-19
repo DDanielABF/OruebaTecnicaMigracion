@@ -1,0 +1,22 @@
+### Obtener usuario (requiere token)
+GET http://localhost:3000/api/users/2
+Authorization: Bearer <TOKEN>
+
+### Actualizar datos del usuario (requiere token)
+PUT http://localhost:3000/api/users/2
+Content-Type: application/json
+Authorization: Bearer <TOKEN>
+
+{
+  "nombre": "Nuevo Nombre"
+}
+
+### Actualizar contraseña del usuario (requiere token)
+PUT http://localhost:3000/api/users/2/password
+Content-Type: application/json
+Authorization: Bearer <TOKEN>
+
+{
+  "currentPassword": "654321",
+  "newPassword": "nuevaClave123"
+}

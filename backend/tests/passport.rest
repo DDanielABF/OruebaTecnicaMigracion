@@ -1,0 +1,19 @@
+### Crear un pasaporte (requiere token)
+POST http://localhost:3000/api/passports
+Content-Type: application/json
+Authorization: Bearer <TOKEN>
+
+{
+  "tipo_pasaporte": "Ordinario",
+  "fecha_emision": "2022-02-01",
+  "fecha_vencimiento": "2032-02-01",
+  "lugar_emision": "Guatemala",
+  "pais_emision": "Guatemala",
+  "numero_pasaporte": "12345ABCDE",
+  "activo": true,
+  "user_id": 2
+}
+
+### Obtener todos los pasaportes de un usuario (requiere token)
+GET http://localhost:3000/api/passports/user/2
+Authorization: Bearer <TOKEN>

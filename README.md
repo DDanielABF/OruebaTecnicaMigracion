@@ -1,2 +1,2 @@
-# OruebaTecnicaMigracion
-desarrollo fullstack de un porttalito de ingreso de pasaportes
+# PruebaTecnicaMigracion
+desarrollo fullstack de un portalito de ingreso de pasaportes con gestion de usuario

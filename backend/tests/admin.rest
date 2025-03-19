@@ -1,0 +1,39 @@
+### Obtener todos los usuarios (requiere token admin)
+GET http://localhost:3000/api/admin/users
+Authorization: Bearer <TOKEN_ADMIN>
+
+### Obtener todos los pasaportes (requiere token admin)
+GET http://localhost:3000/api/admin/passports
+Authorization: Bearer <TOKEN_ADMIN>
+
+### Deshabilitar un usuario (requiere token admin)
+PUT http://localhost:3000/api/admin/users/2/disable
+Authorization: Bearer <TOKEN_ADMIN>
+Content-Type: application/json
+
+{}
+
+### Actualizar estado de un pasaporte (requiere token admin)
+PUT http://localhost:3000/api/admin/passports/1/status
+Authorization: Bearer <TOKEN_ADMIN>
+Content-Type: application/json
+
+{
+  "status": false
+}
+
+### Asociar un nuevo pasaporte a un usuario (requiere token admin)
+POST http://localhost:3000/api/admin/passports/associate
+Authorization: Bearer <TOKEN_ADMIN>
+Content-Type: application/json
+
+{
+  "tipo_pasaporte": "Ordinario",
+  "fecha_emision": "2022-03-01",
+  "fecha_vencimiento": "2032-03-01",
+  "lugar_emision": "Guatemala",
+  "pais_emision": "Guatemala",
+  "numero_pasaporte": "98765ZYXWV",
+  "activo": true,
+  "user_id": 2
+}

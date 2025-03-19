@@ -1,0 +1,41 @@
+### Registro de usuario
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Maria Paz",
+  "correo": "mariapaz@gmail.com",
+  "contraseña": "654321",
+  "rol": "administrador"
+}
+
+### Login de usuario
+### Login de usuario (usando id)
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "id": 1,
+  "contraseña": "654321"
+}
+
+
+### Obtener usuario (requiere token)
+GET http://localhost:3000/api/users/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoiYWRtaW5pc3RyYWRvciIsImlhdCI6MTc0MjI1NDY4MiwiZXhwIjoxNzQyMzQxMDgyfQ.GdcyNzNapg7inqKXDfHyBsfoARiKt9JSyQ8hE6vuMoU
+
+### Crear un pasaporte (requiere token)
+POST http://localhost:3000/api/passports
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoiYWRtaW5pc3RyYWRvciIsImlhdCI6MTc0MjMxMTU0OSwiZXhwIjoxNzQyMzk3OTQ5fQ.05phrC0TcnRJWxoAEl2m1cdN1KmFrpivAv_EP21LyK8
+
+{
+  "tipo_pasaporte": "Ordinario",
+  "fecha_emision": "2022-02-01",
+  "fecha_vencimiento": "2032-02-01",
+  "lugar_emision": "Guatemala",
+  "pais_emision": "Guatemala",
+  "numero_pasaporte": "12345ABCDE",
+  "activo": true,
+  "user_id": 2
+}
