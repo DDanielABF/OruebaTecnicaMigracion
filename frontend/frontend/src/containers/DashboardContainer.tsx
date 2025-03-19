@@ -1,8 +1,9 @@
 // src/containers/DashboardContainer.tsx
 import React, { useEffect, useState, useContext } from 'react';
 import DashboardView from '../pages/DashboardPage';
-import { AuthContext, AuthContextType } from '../context/AuthContext';
+
 import { getPassportsByUser, Passport } from '../services/dashboard';
+import { AuthContext, AuthContextType } from '../context/AuthContext';
 
 interface DashboardData {
   passports: Passport[];
@@ -12,6 +13,7 @@ interface DashboardData {
 }
 
 const DashboardContainer: React.FC = () => {
+  
   const { user } = useContext<AuthContextType>(AuthContext);
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -28,8 +30,8 @@ const DashboardContainer: React.FC = () => {
       try {
         const token = localStorage.getItem('authToken') || '';
         const passports = await getPassportsByUser(user.id, token);
-        console.log('data > ')
-        console.log(passports)
+        //console.log('data > ')
+        //console.log(passports)
 
         setDashboardData({
            

@@ -9,7 +9,7 @@ interface PassportCardsProps {
 
 const PassportCards: React.FC<PassportCardsProps> = ({ passports }) => {
   // Si passports es null o no es un arreglo, muestra un mensaje
-  console.table(passports.data)
+  //console.table(passports.data)
   if (!Array.isArray(passports.data) || passports.data.length === 0) {
     return <p>No tienes pasaportes registrados.</p>;
   }

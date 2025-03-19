@@ -17,15 +17,17 @@
   }
   
   .userInfo {
-    transform: translateX(-400%);
+    transform: translateX(-325%);
     text-align: center;
   
     .welcome {
-      font-size: 1.2rem;
+        font-family: "Poppins", sans-serif;
+      font-size: 1.1rem;
       font-weight: bold;
     }
   
     .role {
+        font-family: "Poppins", sans-serif;
       font-size: 0.9rem;
       opacity: 0.8;
     }

@@ -1,5 +1,6 @@
 // src/components/styles/Register.module.scss
 .registerContainer {
+    font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +30,7 @@
   }
   
   button {
+    font-family: "Poppins", sans-serif;
     width: 100%;
     padding: 0.75rem;
     background-color: #333;

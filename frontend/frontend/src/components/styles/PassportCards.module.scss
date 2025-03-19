@@ -1,11 +1,18 @@
 // src/components/styles/PassportCards.module.scss
+
+h2{
+
+    text-align: center;
+}
 .cardsContainer {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
   }
   
   .card {
+    font-family: "Poppins", sans-serif;
     padding: 1rem;
     border-radius: 8px;
     width: 200px;

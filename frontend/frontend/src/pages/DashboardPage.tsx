@@ -5,8 +5,11 @@ import DashboardStats from '../components/DashboardStats';
 import PassportCards from '../components/PassportCards';
 import EditUserData from '../components/EditUserData';
 import ResetPassword from '../components/ResetPassword';
+import Footer from '../components/Footer';
+import  {  useContext } from 'react';
 import { Passport } from '../services/dashboard';
 import styles from './styles/DashboardView.module.scss'; // Asegúrate de tener estilos para el modal
+import { AuthContext, AuthContextType } from '../context/AuthContext';
 
 interface DashboardStatsData {
   totalPasaportes: number;
@@ -27,18 +30,29 @@ interface DashboardViewProps {
 }
 
 const DashboardView: React.FC<DashboardViewProps> = ({ user, dashboardData }) => {
+  const {  logout } = useContext<AuthContextType>(AuthContext);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
 
+  const totalPasaportes = dashboardData.passports.data?.length || 0;
   return (
+    <>
     <div>
+      <div className={styles.logout} >
+      <button onClick={() => logout()}>Cerrar Sesion</button>
+       
       <DashboardHeader user={user} />
+      </div>
+    
       <div className={styles.actionButtons}>
-        <button onClick={() => setShowEditModal(true)}>Editar Datos</button>
-        <button onClick={() => setShowResetModal(true)}>Restablecer Contraseña</button>
+      <button onClick={() => setShowEditModal(true)}>Editar datos</button>
+       
+        <button onClick={() => setShowResetModal(true)}>Restablecer Contraseña </button>
       </div>
       <div className={styles.datos}>
-      <DashboardStats stats={dashboardData.stats} />
+      <DashboardStats stats={totalPasaportes} />
+      </div>
+      <div className={styles.pasaporte}>
       <PassportCards passports={dashboardData.passports} />
       </div>
 
@@ -62,6 +76,8 @@ const DashboardView: React.FC<DashboardViewProps> = ({ user, dashboardData }) =>
         </div>
       )}
     </div>
+    <Footer/>
+    </>
   );
 };
 
