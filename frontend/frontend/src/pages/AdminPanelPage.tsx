@@ -4,6 +4,7 @@ import AdminUserList from '../components/AdminUserList';
 import AdminPassportList from '../components/AdminPassportList';
 import CreatePassportModal from '../components/CreatePassportModal';
 import Footer from '../components/Footer';
+import styles from '../pages/styles/AdminPanelPage.module.scss'
 
 interface User {
   id: number;
@@ -52,11 +53,11 @@ const AdminPanelView: React.FC<AdminPanelViewProps> = ({
 
   return (
     <div>
-      <div>
+      <div className={styles.headerAdmin}>
         <h1>Panel de Administración</h1>
         <a href="/">Regresar</a>
       </div>
-      <div>
+      <div className={styles.buttonPassport}>
         <button onClick={handleOpenModal}>Crear Pasaporte</button>
         <CreatePassportModal
           isOpen={isModalOpen}

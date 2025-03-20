@@ -26,31 +26,37 @@ const register = async ({ nombre, correo, contraseña, rol }) => {
 };
 
 const login = async (id, contraseña) => {
-    // Buscar usuario por id
-    const user = await User.findByPk(id);
-    if (!user) {
-      throw new Error('Credenciales inválidas.');
-    }
-    
-    const isMatch = await bcrypt.compare(contraseña, user.contraseña);
-    if (!isMatch) {
-      throw new Error('Credenciales inválidas.');
-    }
-    
-    const token = jwt.sign(
-      { id: user.id, rol: user.rol },
-      process.env.JWT_SECRET || 'secretkey',
-      { expiresIn: '1d' }
-    );
-    
-    // Retornamos un objeto con todos los datos requeridos
-    return {
-      token,
-      rol: user.rol,
-      id: user.id,
-      nombre: user.nombre
-    };
+  // Buscar usuario por id
+  const user = await User.findByPk(id);
+  if (!user) {
+    throw new Error('Credenciales inválidas.');
+  }
+  
+  // Verifica que el usuario esté habilitado
+  if (user.estado === false) {
+    throw new Error('El usuario se encuentra inhabilitado.');
+  }
+  
+  const isMatch = await bcrypt.compare(contraseña, user.contraseña);
+  if (!isMatch) {
+    throw new Error('Credenciales inválidas.');
+  }
+  
+  const token = jwt.sign(
+    { id: user.id, rol: user.rol },
+    process.env.JWT_SECRET || 'secretkey',
+    { expiresIn: '1d' }
+  );
+  
+  // Retornamos un objeto con todos los datos requeridos
+  return {
+    token,
+    rol: user.rol,
+    id: user.id,
+    nombre: user.nombre
   };
+};
+
 
 module.exports = {
   register,
