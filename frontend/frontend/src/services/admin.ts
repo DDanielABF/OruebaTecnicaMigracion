@@ -33,11 +33,14 @@ export const disableUser = async (userId: number) => {
   // Se envía un body { status: boolean }
   export const updatePassportStatus = async (passportId: number, status: boolean) => {
     const token = localStorage.getItem('authToken') || '';
-    const response = await axios.put(`${API_URL}/admin/passports/${passportId}/status`, { status }, {
+    try {
+      const response = await axios.put(`${API_URL}/admin/passports/${passportId}/status`, { status }, {
         headers: { Authorization: `Bearer ${token}` },
       });
-    
-    return response.data;
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || 'Error al actualizar el estado del pasaporte');
+    }
   };
   
   //  Asociar un nuevo pasaporte a un usuario

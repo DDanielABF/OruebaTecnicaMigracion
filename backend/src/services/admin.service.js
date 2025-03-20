@@ -45,9 +45,25 @@ const updatePassportStatus = async (passportId, status) => {
   if (!passport) {
     throw new Error('Pasaporte no encontrado.');
   }
+  
+  if (status === true) {
+    // Si se intenta habilitar, verifica si ya existe otro pasaporte activo para el mismo usuario.
+    const existingActivePassport = await Passport.findOne({
+      where: {
+        user_id: passport.user_id,
+        activo: true,
+      },
+    });
+    // Si existe y no es el mismo que se está actualizando, no se permite habilitar otro.
+    if (existingActivePassport && existingActivePassport.id !== passport.id) {
+      throw new Error('Ya existe un pasaporte activo para este usuario.');
+    }
+  }
+  
   await passport.update({ activo: status });
   return passport;
 };
+
 
 /**
  * Asocia un nuevo pasaporte a un usuario.

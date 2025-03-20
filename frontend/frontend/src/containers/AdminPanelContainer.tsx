@@ -1,6 +1,7 @@
 // src/containers/AdminPanelContainer.tsx
 import React, { useEffect, useState } from 'react';
 import AdminPanelView from '../pages/AdminPanelPage';
+import Swal from 'sweetalert2';
 import {
   getAllUsers,
   getAllPassports,
@@ -30,6 +31,7 @@ const AdminPanelContainer: React.FC = () => {
   const [passports, setPassports] = useState<Passport[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
 
   const fetchData = async () => {
     try {
@@ -84,7 +86,17 @@ const AdminPanelContainer: React.FC = () => {
   };
 
   if (loading) return <p>Cargando...</p>;
-  if (error) return <p>{error}</p>;
+  
+    if (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: error,
+      });
+      // Opcional: limpiar el error después de mostrar la alerta
+      setError(null);
+    }
+ 
 
   return (
     <AdminPanelView
