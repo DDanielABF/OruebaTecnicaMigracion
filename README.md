@@ -69,7 +69,7 @@ El sistema se compone de dos capas principales usando la arquitectura cliente-se
 - **Backend:**
   - Node.js, Express
   - Sequelize (ORM)
-  - MySQL / PostgreSQL / SQL Server
+  - MySQL 
   - JWT para autenticación
   - Swagger para documentación de la API
 
