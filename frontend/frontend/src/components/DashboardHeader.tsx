@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles/DashboardHeader.module.scss";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 interface DashboardHeaderProps {
   user: {
@@ -21,9 +21,17 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ user }) => {
       </div>
 
       {/* Información del usuario */}
+       {/* ✅ Mostrar "Ir a Panel" solo si el usuario es Administrador */}
+       
       <div className={styles.userInfo}>
+      {user?.rol === "administrador" && (
+          <p className={styles.adminPanel}>
+            <Link to="/admin">Ir a Panel Administracion</Link>
+          </p>
+        )}
         <p className={styles.welcome}>¡Hola, {user?.nombre || "Usuario"}!</p>
         <p className={styles.role}>Rol: {user?.rol || "Desconocido"}</p>
+         
       </div>
     </header>
   );

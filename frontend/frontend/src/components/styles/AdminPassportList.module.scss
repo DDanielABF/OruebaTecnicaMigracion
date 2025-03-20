@@ -1,0 +1,110 @@
+
+
+h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+h1{
+
+    font-family: "Poppins", sans-serif;
+}
+
+.passportContainer {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .passportTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  th, td {
+    font-family: "Poppins", sans-serif;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background: #007bff;
+    color: white;
+  }
+  
+  .active {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .inactive {
+    color: red;
+    font-weight: bold;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .disableButton {
+    background: red;
+    color: white;
+    &:hover {
+      background: darkred;
+    }
+  }
+  
+  .enableButton {
+    background: green;
+    color: white;
+    &:hover {
+      background: darkgreen;
+    }
+  }
+  
+  /* Estilos para el formulario de asociación */
+  .associateForm {
+    display: none;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+  
+    select,
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+  
+    button {
+      width: 100%;
+      background: #007bff;
+      color: white;
+      font-size: 1rem;
+      &:hover {
+        background: #0056b3;
+      }
+    }
+  }
+  

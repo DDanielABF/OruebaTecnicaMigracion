@@ -14,6 +14,6 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 2,
   "contraseña": "654321"
 }

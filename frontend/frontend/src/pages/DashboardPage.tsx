@@ -76,7 +76,9 @@ const DashboardView: React.FC<DashboardViewProps> = ({ user, dashboardData }) =>
         </div>
       )}
     </div>
+    <footer>
     <Footer/>
+    </footer>
     </>
   );
 };

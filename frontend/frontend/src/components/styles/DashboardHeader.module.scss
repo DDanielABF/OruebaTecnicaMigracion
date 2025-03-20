@@ -12,12 +12,12 @@
   
   .logo img {
     transform: translateX(20%);
-    height: 50px;
+    height: 100px;
     cursor: pointer;
   }
   
   .userInfo {
-    transform: translateX(-325%);
+    transform: translateX(-275%);
     text-align: center;
   
     .welcome {
@@ -31,5 +31,11 @@
       font-size: 0.9rem;
       opacity: 0.8;
     }
+    .adminPanel{
+        a{font-family: "Poppins", sans-serif;
+        text-decoration: none;
+        color: blue;
+       
+    }}
   }
   

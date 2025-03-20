@@ -28,8 +28,9 @@ const disableUser = async (userId) => {
   if (!user) {
     throw new Error('Usuario no encontrado.');
   }
-  // Se asume que el modelo User tiene el campo "estado"
-  await user.update({ estado: false });
+  const nuevoEstado = !user.estado; 
+
+  await user.update({ estado: nuevoEstado });
   return user;
 };
 

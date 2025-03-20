@@ -4,7 +4,7 @@ import LoginPage from '../containers/LoginContainer';
 import RegisterPage from '../containers/RegisterContainer';
 import DashboardPage from '../containers/DashboardContainer';
 import ProfilePage from '../pages/ProfilePage';
-import AdminPanelPage from '../pages/AdminPanelPage';
+import AdminPanelPage from '../containers/AdminPanelContainer';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProtectedRoute from './ProtectedRoute';
 

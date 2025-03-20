@@ -1,0 +1,60 @@
+.userListContainer {
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .userTable {
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  
+    th, td {
+        font-family: "Poppins", sans-serif;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    th {
+      background: #007bff;
+      color: white;
+    }
+  
+    .active {
+      color: green;
+      font-weight: bold;
+    }
+  
+    .inactive {
+      color: red;
+      font-weight: bold;
+    }
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .disableButton {
+    background: red;
+    color: white;
+    &:hover {
+      background: darkred;
+    }
+  }
+  
+  .enableButton {
+    background: green;
+    color: white;
+    &:hover {
+      background: darkgreen;
+    }
+  }
+  
